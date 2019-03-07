@@ -1,0 +1,39 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: openfeign
+  cloud:
+    client:
+      hostname: localhost
+  profiles:
+    #    active: github
+    active: tdf
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: https://dev-269876.okta.com/oauth2/default/v1/keys
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: INFO
+    org.springframework.security.oauth2: Debug
+    org.springframework.boot.autoconfigure: INFO
+
+feign:
+  client:
+    config:
+      feignName:
+        connectTimeout: 10000
+        readTimeout: 10000

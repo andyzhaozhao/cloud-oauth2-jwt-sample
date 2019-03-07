@@ -1,0 +1,94 @@
+server:
+  port: 8080
+  servlet:
+    session:
+      cookie:
+        # 当本地启动TDF-oauth-server时会报错：Possible CSRF detected - state parameter was required but no state could，原因时cookie名称冲突
+        name: ZUULSESSIONID
+spring:
+  application:
+    name: zuul
+  cloud:
+    client:
+      hostname: localhost
+#  profiles:
+#      active: github
+##    active: tdf
+  thymeleaf:
+    cache: false
+#  security:
+#    oauth2:
+#      client:
+#        registration:
+#          tdf:
+#            provider: tdf
+#            client-name: 太极统一认证
+#            client-id: cloudoauth2sample
+#            client-secret: cloudoauth2sample
+#            authorization-grant-type: authorization_code
+#            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+#          github:
+#            client-id: 6f2865b58cb49667ece0
+#            client-secret: 6adf74a79bb75881ed0df7f42177245782890a49
+#          okta:
+#            provider: okta
+#            client-id: 0oaburhrfSDg9qLoQ356
+#            client-secret: GmoXiCCY5Pn9HywMn-2-tSQhFamCMibALFMFOKMR
+#        provider:
+#          tdf:
+#            authorization-uri:  http://192.168.99.77:9998/oauth/authorize
+#            token-uri: http://192.168.99.77:9998/oauth/token
+#            user-info-uri: http://192.168.99.77:9998/user/me
+#            user-name-attribute: "name"
+#          okta:
+#            issure: https://dev-269876.okta.com/oauth2/default
+#            authorization-uri: https://dev-269876.okta.com/oauth2/v1/authorize
+#            token-uri: https://dev-269876.okta.com/oauth2/v1/token
+#            #user-info-uri: https:/dev-269876.okta.com/oauth2/v1/userinfo
+#            jwk-set-uri: https://dev-269876.okta.com/oauth2/v1/keys
+
+  security:
+    oauth2:
+      client:
+        provider:
+          okta:
+            issuer-uri: https://dev-269876.okta.com/oauth2/default
+        registration:
+          okta:
+            client-id: 0oaburhrfSDg9qLoQ356
+            client-secret: GmoXiCCY5Pn9HywMn-2-tSQhFamCMibALFMFOKMR
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+
+zuul:
+  # 敏感http头设置为空字符串，允许向下传递authorization头中包含的token
+  sensitiveHeaders:
+
+  host:
+    connect-timeout-millis: 10000 #HTTP连接超时要比Hystrix的大
+    socket-timeout-millis: 60000   #socket超时
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.security: DEBUG
+    org.springframework.security.oauth2: DEBUG
+    import org.springframework.cloud.netflix.zuul: DEBUG
