@@ -11,9 +11,8 @@ spring:
   cloud:
     client:
       hostname: localhost
-#  profiles:
-#      active: github
-##    active: tdf
+  profiles:
+      active: tdf
   thymeleaf:
     cache: false
 #  security:
@@ -46,17 +45,6 @@ spring:
 #            token-uri: https://dev-269876.okta.com/oauth2/v1/token
 #            #user-info-uri: https:/dev-269876.okta.com/oauth2/v1/userinfo
 #            jwk-set-uri: https://dev-269876.okta.com/oauth2/v1/keys
-
-  security:
-    oauth2:
-      client:
-        provider:
-          okta:
-            issuer-uri: https://dev-269876.okta.com/oauth2/default
-        registration:
-          okta:
-            client-id: 0oaburhrfSDg9qLoQ356
-            client-secret: GmoXiCCY5Pn9HywMn-2-tSQhFamCMibALFMFOKMR
 
 eureka:
   instance:

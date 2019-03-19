@@ -8,13 +8,7 @@ spring:
     client:
       hostname: localhost
   profiles:
-    #    active: github
     active: tdf
-  security:
-    oauth2:
-      resourceserver:
-        jwt:
-          jwk-set-uri: https://dev-269876.okta.com/oauth2/default/v1/keys
 
 eureka:
   instance:

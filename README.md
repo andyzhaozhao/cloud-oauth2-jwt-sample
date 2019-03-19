@@ -6,8 +6,9 @@
 开发者社区博客文档：[Spring Cloud基于Oauth2的认证和鉴权](http://tech.taiji.com.cn/community/blogShow?id=d94287c697d74425aeda2b2cc404acca)
 
 ## 运行
-* 本项目的第三方认证使用的是okta：https://developer.okta.com
-* 需要申请okta的开发者账号https://developer.okta.com/signup/
+本项目支持okta和[TDF-oauth-server](http://tech.taiji.com.cn/community/blog/%E7%BB%9F%E4%B8%80%E8%AE%A4%E8%AF%81%E5%B9%B3%E5%8F%B0TDF-oauth-server)
+* 如果使用TDF-oauth-server作为认证服务器请参考http://tech.taiji.com.cn/community/blog/%E7%BB%9F%E4%B8%80%E8%AE%A4%E8%AF%81%E5%B9%B3%E5%8F%B0TDF-oauth-server
+* 如果使用okta，需要申请okta的开发者账号https://developer.okta.com/signup/
 
 1. 运行eureka
 2. 运行zuul

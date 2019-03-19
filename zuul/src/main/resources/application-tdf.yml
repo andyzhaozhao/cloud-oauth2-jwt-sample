@@ -1,0 +1,20 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          tdf:
+            client-id: cloudoauth2samplejwt
+            client-secret: cloudoauth2samplejwt
+            provider: tdf
+            client-name: 太极统一认证
+            authorization-grant-type: authorization_code
+            redirect-uri-template: "{baseUrl}/login/oauth2/code/{registrationId}"
+        provider:
+          tdf:
+            authorization-uri: http://localhost:9999/oauth/authorize
+            token-uri: http://localhost:9999/oauth/token
+            user-info-uri: http://localhost:9999/user/me
+            user-name-attribute: "name"
+            jwk-set-uri: http://localhost:9999/.well-known/jwks.json
+
