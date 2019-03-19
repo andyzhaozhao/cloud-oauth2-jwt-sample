@@ -3,4 +3,8 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: http://localhost:9999/.well-known/jwks.json
+          jwk-set-uri: ${authorization-server-url}/.well-known/jwks.json
+
+# 自定义变量；认证服务器地址
+authorization-server-url: http://192.168.99.77:9998
+#authorization-server-url: http://localhost:9999
