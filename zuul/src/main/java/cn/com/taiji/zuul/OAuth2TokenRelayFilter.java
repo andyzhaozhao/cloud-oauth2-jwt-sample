@@ -29,6 +29,9 @@ public class OAuth2TokenRelayFilter extends ZuulFilter {
     @Autowired
     private OAuth2AuthorizedClientService authorizedClientService;
 
+//    @Autowired
+//    private OAuth2AuthorizedClientRepository oAuth2AuthorizedClientRepository;
+
     @Override
     public boolean shouldFilter() {
         // 写法参考官网：https://docs.spring.io/spring-security/site/docs/5.1.4.RELEASE/reference/htmlsingle/#oauth2Client-authorized-client
